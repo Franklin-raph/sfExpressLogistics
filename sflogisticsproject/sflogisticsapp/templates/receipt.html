@@ -1,0 +1,266 @@
+{% load static %}
+
+{% load mathfilters %}
+<!doctype html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Transportion</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/xfavicon.png.pagespeed.ic.xjuSQ5i6l5.png' %}">
+
+    <link rel="stylesheet" href="{% static '../ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+  
+    <div class="container" style="margin-bottom: 10rem;">
+        <div class="row">
+            <div class="col-12" >
+                <span style="display:flex; justify-content: flex-end; align-items: flex-end;">{{ receipt_details.receipt_date }}</span> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ receipt_details.receipt_date }}
+            </div>
+            <div class="col-6">
+                SF Express Logistics Service | Invoice
+            </div>
+        </div>
+        <div class="row ml-5 mt-4">
+            <img src="{% static 'img/sflogo.png' %}" class="d-inline-block align-top" alt="" width="220px" height="70px">
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-4">
+                <span>From</span>
+                <p>
+                    <h5>{{ receipt_details.from_name }}</h5>
+                </p>
+            </div>
+            <div class="col-4">
+                <span>To</span>
+                <p>
+                    <h5>{{ receipt_details.to_name }}</h5>
+                </p>
+            </div>
+            <div class="col-4">
+                <span>Order ID</span>
+                <p>
+                    <h5>{{ receipt_details.order_id }} </h5>
+                </p>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 4rem;">
+            <div class="col-4">
+                <p>
+                    <span style="font-weight: bolder;">Phone: </span><br />{{ receipt_details.from_phone }}
+                </p>
+                <p>
+                    <span style="font-weight: bolder;">Address: </span><br />{{ receipt_details.from_adress }}
+                </p>
+                <p>
+                    <span style="font-weight: bolder;">Origin Office: </span><br />{{ receipt_details.from_office }}
+                </p>
+            </div>
+            <div class="col-4">
+                <p>
+                    <span style="font-weight: bolder;">Phone: </span><br />{{ receipt_details.to_phone }}
+                </p>
+                <p>
+                    <span style="font-weight: bolder;">Address: </span><br />{{ receipt_details.to_adress }}</p>
+                <p>
+                    <span style="font-weight: bolder;">Destination Office: </span><br />{{ receipt_details.to_office }}
+                </p>
+            </div>
+            <div class="col-4">
+                <p>
+                    <span style="font-weight: bolder;">Payment Due: </span><br />{{ receipt_details.payment_due }}
+                </p>
+                <p>
+                    <span style="font-weight: bolder;">Booking Mode: </span><br />{{ receipt_details.booking_mode }}
+                </p>
+                <p>
+                    <span style="font-weight: bolder;">Insurance of the Shipment: </span><br />${{ receipt_details.shipment_insurance }}
+                </p>
+            </div>
+        </div>
+        
+
+        <table class="table my-5">
+            
+            <thead>
+              <tr>
+                <th scope="col">Qty</th>
+                <th scope="col">Product</th>
+                <th scope="col">Status</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Subtotal</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+                {% for details in package_table %}
+              <tr>
+                <th scope="row">{{ details.quantity }}</th>
+                <td>{{ details.product }}</td>
+                <td><span class="badge badge-secondary">{{ details.status }}</span></td>
+                <td>{{ details.description }}</td>
+                <td>${{ details.price }}</td>
+                <td>${{ details.price|mul:details.quantity }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+          <div class="row mr-3" style="margin-top: 5rem;">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <p>Amount Due</p> 
+                <table class="table">
+                   <tbody>
+                     <tr>
+                       <th scope="row"><b>Subtotal:</b></th>
+                       <td>${{ sub_total }}</td>
+                     </tr>
+                     <tr>
+                        <th scope="row"><b>Shipping:</b></th>
+                        <td>${{ receipt_details.shipment_insurance }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"><b>Total:</b></th>
+                        <td>${{ total }}</td>
+                      </tr>
+                   </tbody>
+                 </table>
+             </div>
+
+              <div class="col-lg-6 col-md-6 col-sm-12">
+                 <p class="mb-4">Payment Methods:</p>
+                 <img src="{% static 'img/securepayment.png' %}">
+                 <div class="row mt-4" style="border: 1px solid rgb(168, 164, 164); padding: 7px; border-radius: 7px;">
+                     For your convenience we have SF Express Logistics Service several payment reliable,fast,secure.
+                 </div>
+              </div>
+              
+          </div>
+          
+    </div>
+
+    <style>
+        @media screen and (max-width:576px) {
+     #footerImg{
+        width: 180px;
+     }
+
+     @media screen and (max-width:378px) {
+     #footerImg{
+        width: 140px;
+        }
+     }
+  }
+
+    </style>
+    <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/all.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js%2bbootstrap.min.js.pagespeed.jc.iw2P-MtK0J.js' %}"></script>
+    
+    <script>
+        setTimeout(function(){ print(); }, 2000);
+    </script>
+
+    <script>
+        eval(mod_pagespeed_GDZlCK9bEp);
+    </script>
+    <script>
+        eval(mod_pagespeed_CHx4rUexoN);
+    </script>
+    <script src="{% static 'js/owl.carousel.min.js%2bisotope.pkgd.min.js%2bajax-form.js%2bwaypoints.min.js%2bjquery.counterup.min.js.pagespeed.jc.OHw1quCuek.js' %}"></script>
+    <script>
+        eval(mod_pagespeed_TWxA94X_Nl);
+    </script>
+    <script>
+        eval(mod_pagespeed_6jNlqUhQEA);
+    </script>
+    <script>
+        eval(mod_pagespeed_H0l7XeVTty);
+    </script>
+    <script>
+        eval(mod_pagespeed_hZjsYbWuY0);
+    </script>
+    <script>
+        eval(mod_pagespeed_aWDEz6MCeH);
+    </script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js%2bscrollIt.js%2bjquery.scrollUp.min.js%2bwow.min.js%2bnice-select.min.js%2bjquery.slicknav.min.js%2bjquery.magnific-popup.min.js%2bplugins.js' %}"></script>
+    <script>
+        eval(mod_pagespeed_APil0DVdNM);
+    </script>
+    <script>
+        eval(mod_pagespeed_3zVWGzOQna);
+    </script>
+    <script>
+        eval(mod_pagespeed_DO0i7ae2Ob);
+    </script>
+    <script>
+        eval(mod_pagespeed_06SH1ilW_d);
+    </script>
+    <script>
+        eval(mod_pagespeed_jlJUPitG8p);
+    </script>
+    <script>
+        eval(mod_pagespeed_0EahvLjQta);
+    </script>
+    <script>
+        eval(mod_pagespeed_FUyK8gM3yL);
+    </script>
+    <script>
+        eval(mod_pagespeed_KUzq3nbKjQ);
+    </script>
+
+<script src="{% static 'js/slick.min.js%2bcontact.js%2bjquery.ajaxchimp.min.js%2bjquery.form.js.pagespeed.jc.Q8YOBxunlD.js' %}"></script>
+    <script>
+        eval(mod_pagespeed_lR_eTnLGVO);
+    </script>
+
+    <script>
+        eval(mod_pagespeed_4tlGMlIapK);
+    </script>
+    <script>
+        eval(mod_pagespeed_XHvO5zCa2u);
+    </script>
+    <script>
+        eval(mod_pagespeed_kJYdyvAVQo);
+    </script>
+    <script src="{% static 'js/jquery.validate.min.js%2bmail-script.js%2bmain.js.pagespeed.jc.3-GO9vd9XL.js' %}"></script>
+    <script>
+        eval(mod_pagespeed_Es86C5DB6c);
+    </script>
+    <script>
+        eval(mod_pagespeed_IfrKN1CT1L);
+    </script>
+    <script>
+        eval(mod_pagespeed_XTyAETQiiD);
+    </script>
+
+    <script async src="{% static 'https://www.googletagmanager.com/gtag/js?id=UA-23581568-13' %}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script async src="{% static '../static.cloudflareinsights.com/beacon.min.js' %}" data-cf-beacon='{"rayId":"6817b28c293b4250","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.8.1","si":10}'></script>
+    
+</body>
+
+</html>
