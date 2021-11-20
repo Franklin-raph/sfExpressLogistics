@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Packages
 from .models import Receipt
@@ -15,7 +15,17 @@ def services(request):
     return render(request, 'services.html')
 
 def packageTracking(request):
-    return render(request, 'packageTracking.html')
+    if request.method == "POST":
+        data = request.POST['tracking_id']
+        result = TrackingInfo.objects.get(order_id=data)
+        if result:
+            myUrl = '/trackinInfo/' + result.order_id
+            return redirect(myUrl)
+        else:
+            return render(request, 'packageTracking.html', {"data":result})
+        
+    else:
+        return render(request, 'packageTracking.html')
 
 def contact(request):
     return render(request, 'contact.html')
