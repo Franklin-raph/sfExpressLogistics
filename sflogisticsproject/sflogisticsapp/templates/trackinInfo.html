@@ -11,14 +11,13 @@
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/xfavicon.png.pagespeed.ic.xjuSQ5i6l5.png' %}">
 
 
-    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css%2bowl.carousel.min.css%2bmagnific-.css' %}"> -->
-    <link rel="stylesheet" href="{% static '../ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/Style.css' %}">
-    <!-- <link rel="stylesheet" href="{% static 'themify-icons/themify-icons.css' %}">
-    <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}"> -->
-  
-    <script src="{% static '../kit.fontawesome.com/a513147b89.js' %}" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{% static '../ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css%2bowl.carousel.min.css%2bmagnific-.css' %}">
+        <link rel="stylesheet" href="{% static 'css/Style.css' %}">
+        <link rel="stylesheet" href="{% static 'themify-icons/themify-icons.css' %}">
+        <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+      
+        <script src="{% static '../kit.fontawesome.com/a513147b89.js' %}" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -29,7 +28,6 @@
         <div class="row align-items-center">
             <div class="col-xl-4 col-lg-4">
                 <div class="logo">
-                    <a href="{% url 'home' %}">
                         <img src="{% static 'img/sflogo.png' %}" style="height: 90px; width:120px" alt="" data-pagespeed-url-hash="2521677601" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                     </a>
                 </div>
@@ -38,7 +36,7 @@
                 <div class="header_right d-flex align-items-center">
                     <div class="short_contact_list">
                         <ul>
-                            <li><a href="{% url 'home' %}"> <i class="fa fa-envelope"></i> <span class="__cf_email__" data-cfemail="cca5a2aaa38ca8a3afa1a9a8e2afa3a1">customercare@sfexpresslogisticsservice.com</span></a>
+                            <li><a href="mailto:customercare@sfexpresslogisticsservice.com"> <i class="fa fa-envelope"></i> <span class="__cf_email__" data-cfemail="cca5a2aaa38ca8a3afa1a9a8e2afa3a1">customercare@sfexpresslogisticsservice.com</span></a>
                             </li>
                         </ul>
                     </div>
@@ -56,8 +54,7 @@
             <div class="row align-items-center">
                 <div class="col-12 d-block d-lg-none">
                     <div class="logo">
-                        <li><a href="{% url 'home' %}">home</a></li>
-                        <img src="{% static 'img/sflogo.png' %}" style="height: 80px;" alt="" data-pagespeed-url-hash="2521677601" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                        <img src="img/logo.png" style="height: 80px;" alt="" data-pagespeed-url-hash="2521677601" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
 
                         </a>
                     </div>
@@ -87,12 +84,14 @@
             </div>
         </div>
     </div>
-</div>        </div>
+  </div>        
+</div>
     </header>
 
     <div class="container">
         <div class="mb-3">
-            <img src="{% static 'img/map.png' %}" alt="">
+            <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbuLFMLmOBIEruXXDA_yDpw9N2UaQOnNwaJQ&usqp=CAU" style="width: 100%;" alt=""> -->
+            <img src="https://i.pinimg.com/736x/b2/15/5a/b2155ab53b35421c97505260884eda9c.jpg" width= "100%" height= "20%" alt="">
         </div>
         <div class="row ">
             <div class="col-12">
@@ -146,7 +145,6 @@
             submitBtn.addEventListener("click", ()=>{
                 track_id = "{{ tracking_info.order_id }}"
                 window.location.href = `/receipt/${track_id}`
-
             });
         </script>
 
