@@ -1,12 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Packages
 from .models import Receipt
 from .models import TrackingRoute
 from .models import TrackingInfo
 
+
 def error_404_page(request, exception):
     return render(request, '404.html')
+
+def error_500_page(request, exception):
+    return render(request, '500.html')
 
 def home(request):
     return render(request, 'home.html')
@@ -18,14 +22,16 @@ def services(request):
     return render(request, 'services.html')
 
 def packageTracking(request):
-    # if request.method == 'POST':
-    #     tracking_id = request.POST.get('tracking_id')
-    #     result = TrackingInfo.objects.filter(order_id=tracking_id)
-    #     print("This is the result")
-    #     print(result)
-    #     print("The result is up")
-    
-    return render(request, 'packageTracking.html')
+    if request.method == "POST":
+        data = request.POST['tracking_id']
+        result = TrackingInfo.objects.get(order_id=data)
+        if (data == result.order_id):
+            myUrl = '/trackinInfo/' + result.order_id
+            return redirect(myUrl)
+        else:
+            return render(request, 'packageTracking.html', {"data":result})
+    else:
+        return render(request, 'packageTracking.html')
 
 def contact(request):
     return render(request, 'contact.html')
@@ -43,6 +49,7 @@ def receipt(request, tracking_id):
 
 def trackinInfo(request, track_id):
     tracking_info = TrackingInfo.objects.get(order_id = track_id)
+    my_goods_id = track_id
     tracking_route = TrackingRoute.objects.filter(additional_info = tracking_info)
     
     return render(request, 'trackinInfo.html', {'tracking_info':tracking_info, 'tracking_route':tracking_route})

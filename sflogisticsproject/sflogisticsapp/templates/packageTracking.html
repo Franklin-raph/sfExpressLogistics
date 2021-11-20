@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{% static 'css/Style.css' %}">
     <link rel="stylesheet" href="{% static 'themify-icons/themify-icons.css' %}">
     <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
-  
+
     <script src="{% static '../kit.fontawesome.com/a513147b89.js' %}" crossorigin="anonymous"></script>
 </head>
 
@@ -24,69 +24,71 @@
 
     <header>
         <div class="header-area ">
-        <div class="header-top_area d-none d-lg-block">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-4 col-lg-4">
-                <div class="logo">
-                        <img src="{% static 'img/sflogo.png' %}" style="height: 90px; width:120px" alt="" data-pagespeed-url-hash="2521677601" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                    </a>
+            <div class="header-top_area d-none d-lg-block">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-4 col-lg-4">
+                            <div class="logo">
+                                <a href="{% url 'home' %}">
+                                    <img src="{% static 'img/sflogo.png' %}" style="height: 90px; width:120px" alt="" data-pagespeed-url-hash="2521677601" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-md-8">
+                            <div class="header_right d-flex align-items-center">
+                                <div class="short_contact_list">
+                                    <ul>
+                                        <li>
+                                            <a href="{% url 'home' %}"> <i class="fa fa-envelope"></i> <span class="__cf_email__" data-cfemail="cca5a2aaa38ca8a3afa1a9a8e2afa3a1">customercare@sfexpresslogisticsservice.com</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="book_btn d-none d-lg-block">
+                                    <a class="boxed-btn3-line" href="{% url 'packageTracking' %}">Track Your Package</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-xl-8 col-md-8">
-                <div class="header_right d-flex align-items-center">
-                    <div class="short_contact_list">
-                        <ul>
-                            <li><a href="mailto:customercare@sfexpresslogisticsservice.com"> <i class="fa fa-envelope"></i> <span class="__cf_email__" data-cfemail="cca5a2aaa38ca8a3afa1a9a8e2afa3a1">customercare@sfexpresslogisticsservice.com</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="book_btn d-none d-lg-block">
-                        <a class="boxed-btn3-line" href="{% url 'packageTracking' %}">Track Your Package</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>            
-<div id="sticky-header" class="main-header-area">
-    <div class="container">
-        <div class="header_bottom_border">
-            <div class="row align-items-center">
-                <div class="col-12 d-block d-lg-none">
-                    <div class="logo">
-                        <img src="img/logo.png" style="height: 80px;" alt="" data-pagespeed-url-hash="2521677601" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+            <div id="sticky-header" class="main-header-area">
+                <div class="container">
+                    <div class="header_bottom_border">
+                        <div class="row align-items-center">
+                            <div class="col-12 d-block d-lg-none">
+                                <div class="logo">
+                                    <img src="img/logo.png" style="height: 80px;" alt="" data-pagespeed-url-hash="2521677601" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
 
-                        </a>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xl-9 col-lg-9">
+                                <div class="main-menu  d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="{% url 'home' %}">home</a></li>
+                                            <li><a href="{% url 'services' %}">services</a></li>
+                                            <li><a href="{% url 'about' %}">about</a>
+                                            </li>
+                                            <li><a href="{% url 'packageTracking' %}">Package Tracking</a>
+                                            </li>
+                                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                                <div class="Appointment justify-content-end">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xl-9 col-lg-9">
-                    <div class="main-menu  d-none d-lg-block">
-                        <nav>
-                            <ul id="navigation">
-                                <li><a href="{% url 'home' %}">home</a></li>
-                                <li><a href="{% url 'services' %}">services</a></li>
-                                <li><a href="{% url 'about' %}">about</a>
-                                </li>
-                                <li><a href="{% url 'packageTracking' %}">Package Tracking</a>
-                                </li>
-                                <li><a href="{% url 'contact' %}">Contact</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                    <div class="Appointment justify-content-end">
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="mobile_menu d-block d-lg-none"></div>
                 </div>
             </div>
         </div>
-    </div>
-  </div>        
-</div>
     </header>
 
 
@@ -112,7 +114,7 @@
                 <div class="col-lg-8">
 
                     <form class="form-contact contact_form" method="post" novalidate>
-                        {%csrf_token%}
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
@@ -121,80 +123,87 @@
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <a type="submit"  name="submit" id="submit_btn" class="button button-contactForm boxed-btn" >Submit</a>
+                            {% comment %} <a type="submit" name="submit" id="submit_btn" class="button button-contactForm boxed-btn">Submit</a> {% endcomment %}
+                            <input type="submit" name="submit" value="submit" id="submit_btn" class="button button-contactForm boxed-btn">
                         </div>
-                        <p name='idNum'>Tracking id is: {{ result }}</p>
+                        <!-- <p>Your Tracking ID is: {{ result.order_id }}</p> -->
                     </form>
 
-                    <script>
+                    
+                    <!-- <script>
                         const field_id = document.querySelector("#subject")
                         const submitBtn = document.querySelector("#submit_btn")
-                        submitBtn.addEventListener("click", ()=>{
-                            
-                        window.location.href = `/trackinInfo/${field_id.value}`
+                        submitBtn.addEventListener("click", () => {
+                            if ({{ data.order_id }} === field_id.value ){
+                                window.location.href = `/trackinInfo/${field_id.value}`
+                            }
+                            else{
+                                console.log("incorrect!")
+                            }
                         });
-                    </script>
+                    </script> -->
 
                 </div>
                 <div class="col-lg-3 offset-lg-1">
-    <div class="media contact-info">
-        <span class="contact-info__icon"><i class="ti-home"></i></span>
-        <div class="media-body">
-            <h3>Head OfficeS.F. Express Co. LtdBuilding 1, Shenzhen Software Industry Base,Hi-tech Industrial Park Shenzhen,GuangDong 518054</h3>
-        </div>
-    </div>
-    <div class="media contact-info">
-        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-        <div class="media-body">
-            <h3>+1(402)-258-2151+86(186)-8027-4054</h3>
-            <p>Mon to Fri 9am to 6pm</p>
-        </div>
-    </div>
-    <div class="media contact-info">
-        <span class="contact-info__icon"><i class="ti-email"></i></span>
-        <div class="media-body">
-            <h3><a href="mailto:customercare@sfexpresslogisticsservice.com"> <i class="fa fa-envelope"></i> <span class="__cf_email__" data-cfemail="cca5a2aaa38ca8a3afa1a9a8e2afa3a1">customercare@sfexpresslogisticsservice.com</span></a>
-            </h3>
-            <p>Send us your query anytime!</p>
-        </div>
-    </div>
-</div>            </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-home"></i></span>
+                        <div class="media-body">
+                            <h3>Head OfficeS.F. Express Co. LtdBuilding 1, Shenzhen Software Industry Base,Hi-tech Industrial Park Shenzhen,GuangDong 518054</h3>
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                        <div class="media-body">
+                            <h3>+1(402)-258-2151+86(186)-8027-4054</h3>
+                            <p>Mon to Fri 9am to 6pm</p>
+                        </div>
+                    </div>
+                    <div class="media contact-info">
+                        <span class="contact-info__icon"><i class="ti-email"></i></span>
+                        <div class="media-body">
+                            <h3><a href="mailto:customercare@sfexpresslogisticsservice.com" class="__cf_email__" data-cfemail="aedddbdedec1dcdaeecdc1c2c1dcc2c7cc80cdc1c3" style="max-width: 100px !important;">customercare@<br>sfexpresslogisticsservice</a>
+                            </h3>
+                            <p>Send us your query anytime!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
 
-    
-<div class="contact_location">
+
+    <div class="contact_location">
         <div class="container">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6">
                     <div class="location_left">
                         <div class="logo">
                             <a href="{% url 'home' %}">
-                                <img src="{% static 'img/sflogo.png' %}" style="width: 200px"
-                                    alt="" data-pagespeed-url-hash="2521677601"
-                                    onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                <img src="{% static 'img/sflogo.png' %}" style="width: 200px" alt="" data-pagespeed-url-hash="2521677601" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
                             </a>
                         </div>
-                         <ul>
-                            <li><a href="{% url 'home' %}"> <i class="fab fa-facebook"></i> </a></li>
-                            <li><a href="{% url 'home' %}"> <i class="fab fa-google-plus"></i> </a></li>
+                        <ul>
+                            <li>
+                                <a href="{% url 'home' %}"> <i class="fab fa-facebook"></i> </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'home' %}"> <i class="fab fa-google-plus"></i> </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-3">
                     <div class="single_location">
-                        <h3> <img src="img/icon/address.svg" alt="" data-pagespeed-url-hash="1088141323"
-                                onload="pagespeed.CriticalImages.checkImageForCriticality(this);"> Location</h3>
+                        <h3> <img src="img/icon/address.svg" alt="" data-pagespeed-url-hash="1088141323" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"> Location</h3>
                         <p>Head OfficeS.F. Express Co. LtdBuilding 1, Shenzhen Software Industry Base,Hi-tech Industrial Park Shenzhen,GuangDong 518054</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-md-3">
                     <div class="single_location">
-                        <h3> <img src="img/icon/support.svg" alt="" data-pagespeed-url-hash="4027988558"
-                                onload="pagespeed.CriticalImages.checkImageForCriticality(this);"> Contact Information</h3>
+                        <h3> <img src="img/icon/support.svg" alt="" data-pagespeed-url-hash="4027988558" onload="pagespeed.CriticalImages.checkImageForCriticality(this);"> Contact Information</h3>
                         <p>+1(402)-258-2151+86(186)-8027-4054 <br>
-                            <a href="mailto:customercare@sfexpresslogisticsservice.com"> <i class="fa fa-envelope"></i> <span class="__cf_email__" data-cfemail="cca5a2aaa38ca8a3afa1a9a8e2afa3a1">customercare@sfexpresslogisticsservice.com</span></a>
+                            <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="6e1d1b1e1e011c1a2e020109071d1a070d01400d0103">customercare@sfexpresslogisticsservice.com</a>
                         </p>
                     </div>
                 </div>
@@ -337,7 +346,7 @@
         eval(mod_pagespeed_KUzq3nbKjQ);
     </script>
 
-<script src="{% static 'js/slick.min.js%2bcontact.js%2bjquery.ajaxchimp.min.js%2bjquery.form.js.pagespeed.jc.Q8YOBxunlD.js' %}"></script>
+    <script src="{% static 'js/slick.min.js%2bcontact.js%2bjquery.ajaxchimp.min.js%2bjquery.form.js.pagespeed.jc.Q8YOBxunlD.js' %}"></script>
     <script>
         eval(mod_pagespeed_lR_eTnLGVO);
     </script>
@@ -374,7 +383,7 @@
         gtag('config', 'UA-23581568-13');
     </script>
     <script async src="{% static '../static.cloudflareinsights.com/beacon.min.js' %}" data-cf-beacon='{"rayId":"6817b28c293b4250","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.8.1","si":10}'></script>
-    
+
 </body>
 
 </html>
